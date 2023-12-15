@@ -2,6 +2,7 @@
 package vista;
 
 import java.awt.Dimension;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -9,12 +10,23 @@ import java.awt.Dimension;
  */
 public class FrmMenu extends javax.swing.JFrame {
 
+    public static JDesktopPane jDesktopPane_menu;
+    
+    
     public FrmMenu() {
         initComponents();
         this.setSize(new Dimension(1200, 700));
         this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setTitle("Sistema de Registro de Pago");
+        
+        this.setLayout(null);
+        jDesktopPane_menu = new JDesktopPane();
+        
+        int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+        this.jDesktopPane_menu.setBounds(0, 0, ancho, (alto - 110));
+        this.add(jDesktopPane_menu);
     }
 
     /**
@@ -27,57 +39,62 @@ public class FrmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu = new javax.swing.JMenu();
+        jMenuItem_gestionar_usuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem_registrar_cliente = new javax.swing.JMenuItem();
+        jMenuItem_gestionar_cliente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem_ver_calendario = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem_registrar_pago = new javax.swing.JMenuItem();
+        jMenuItem_deudores = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem_reporte_dia = new javax.swing.JMenuItem();
+        jMenuItem_reporte_semana = new javax.swing.JMenuItem();
+        jMenuItem_reporte_mes = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem_ver_historial = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem_cerrar_sesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/userr.png"))); // NOI18N
-        jMenu1.setText("Usuario");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenu1.setPreferredSize(new java.awt.Dimension(150, 50));
+        jMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/userr.png"))); // NOI18N
+        jMenu.setText("Usuario");
+        jMenu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenu.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jMenuItem1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem1.setText("Gestionar Usuarios");
-        jMenu1.add(jMenuItem1);
+        jMenuItem_gestionar_usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_gestionar_usuario.setText("Gestionar Usuarios");
+        jMenu.add(jMenuItem_gestionar_usuario);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenu);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Clientes.png"))); // NOI18N
         jMenu2.setText("Clientes");
         jMenu2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu2.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jMenuItem3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem3.setText("Registrar Cliente");
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem4.setText("Gestionar Clientes");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_registrar_cliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_registrar_cliente.setText("Registrar Cliente");
+        jMenuItem_registrar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItem_registrar_clienteActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenu2.add(jMenuItem_registrar_cliente);
+
+        jMenuItem_gestionar_cliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_gestionar_cliente.setText("Gestionar Clientes");
+        jMenuItem_gestionar_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_gestionar_clienteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_gestionar_cliente);
 
         jMenuBar1.add(jMenu2);
 
@@ -86,9 +103,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu3.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jMenuItem5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem5.setText("Ver Calendario");
-        jMenu3.add(jMenuItem5);
+        jMenuItem_ver_calendario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_ver_calendario.setText("Ver Calendario");
+        jMenu3.add(jMenuItem_ver_calendario);
 
         jMenuBar1.add(jMenu3);
 
@@ -97,13 +114,13 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu4.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jMenuItem6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem6.setText("Registrar Pago");
-        jMenu4.add(jMenuItem6);
+        jMenuItem_registrar_pago.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_registrar_pago.setText("Registrar Pago");
+        jMenu4.add(jMenuItem_registrar_pago);
 
-        jMenuItem9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem9.setText("Ver Deudores");
-        jMenu4.add(jMenuItem9);
+        jMenuItem_deudores.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_deudores.setText("Ver Deudores");
+        jMenu4.add(jMenuItem_deudores);
 
         jMenuBar1.add(jMenu4);
 
@@ -112,17 +129,17 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu5.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jMenuItem7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem7.setText("Reporte del Dia");
-        jMenu5.add(jMenuItem7);
+        jMenuItem_reporte_dia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_reporte_dia.setText("Reporte del Dia");
+        jMenu5.add(jMenuItem_reporte_dia);
 
-        jMenuItem10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem10.setText("Reporte de la Semana");
-        jMenu5.add(jMenuItem10);
+        jMenuItem_reporte_semana.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_reporte_semana.setText("Reporte de la Semana");
+        jMenu5.add(jMenuItem_reporte_semana);
 
-        jMenuItem11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem11.setText("Reporte del Mes");
-        jMenu5.add(jMenuItem11);
+        jMenuItem_reporte_mes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_reporte_mes.setText("Reporte del Mes");
+        jMenu5.add(jMenuItem_reporte_mes);
 
         jMenuBar1.add(jMenu5);
 
@@ -131,9 +148,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu6.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jMenuItem2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem2.setText("Ver Historial");
-        jMenu6.add(jMenuItem2);
+        jMenuItem_ver_historial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_ver_historial.setText("Ver Historial");
+        jMenu6.add(jMenuItem_ver_historial);
 
         jMenuBar1.add(jMenu6);
 
@@ -142,9 +159,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu7.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jMenuItem8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem8.setText("Cerrar Sesión");
-        jMenu7.add(jMenuItem8);
+        jMenuItem_cerrar_sesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenuItem_cerrar_sesion.setText("Cerrar Sesión");
+        jMenu7.add(jMenuItem_cerrar_sesion);
 
         jMenuBar1.add(jMenu7);
 
@@ -153,9 +170,15 @@ public class FrmMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItem_gestionar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_clienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuItem_gestionar_clienteActionPerformed
+
+    private void jMenuItem_registrar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_registrar_clienteActionPerformed
+        InterCliente interCliente = new InterCliente();
+        jDesktopPane_menu.add(interCliente);
+        interCliente.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_registrar_clienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,7 +216,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -201,16 +224,16 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItem_cerrar_sesion;
+    private javax.swing.JMenuItem jMenuItem_deudores;
+    private javax.swing.JMenuItem jMenuItem_gestionar_cliente;
+    private javax.swing.JMenuItem jMenuItem_gestionar_usuario;
+    private javax.swing.JMenuItem jMenuItem_registrar_cliente;
+    private javax.swing.JMenuItem jMenuItem_registrar_pago;
+    private javax.swing.JMenuItem jMenuItem_reporte_dia;
+    private javax.swing.JMenuItem jMenuItem_reporte_mes;
+    private javax.swing.JMenuItem jMenuItem_reporte_semana;
+    private javax.swing.JMenuItem jMenuItem_ver_calendario;
+    private javax.swing.JMenuItem jMenuItem_ver_historial;
     // End of variables declaration//GEN-END:variables
 }
