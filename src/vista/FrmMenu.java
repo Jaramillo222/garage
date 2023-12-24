@@ -171,7 +171,9 @@ public class FrmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem_gestionar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_gestionar_clienteActionPerformed
-        // TODO add your handling code here:
+        InterGestionarClientes interGestionarClientes = new InterGestionarClientes();
+        jDesktopPane_menu.add(interGestionarClientes);
+        interGestionarClientes.setVisible(true);
     }//GEN-LAST:event_jMenuItem_gestionar_clienteActionPerformed
 
     private void jMenuItem_registrar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_registrar_clienteActionPerformed
